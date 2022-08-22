@@ -22,7 +22,7 @@
     <header class="banner d-flex">
         <div
             class="w-50 mx-auto col-6 text-white text-center d-flex flex-column justify-content-center align-content-center">
-            <h1 clas="my-5">The <strong class="text-danger"> Ultimate Worrior</strong></h1>
+            <h1 clas="my-5 fw-bold">The <strong class="text-danger"> Ultimate Worrior</strong></h1>
             <p class="fs-4 mt-4"> Choose your top five ultimate players, train them under your supervision and watch
                 your ultimate dream team!
             </p>
@@ -151,10 +151,10 @@
 
                 <div class="mt-3 card bg-ultimate-black d-flex justify-content-center p-2 ">
                     <div class="card-body text-center">
-                        <h5 class="card-title text-center fw-semibold my-3">Budget</h5>
+                        <h5 class="card-title text-center fw-semibold mb-5">Budget</h5>
                         <div class=" d-flex justify-content-between my-3 text-secondary">
                             <p class="d-flex alight-items-center">Per Player</p>
-                            <input class="w-50 bg-ultimate-black text-white" type="text">
+                            <input id="per-player-field" class="w-50 bg-ultimate-black text-white" type="text">
                         </div>
                         <button id="calculate-btn"
                             class="btn bg-primary text-center my-3 rounded-0 text-white w-100">Calculate</button>
@@ -162,21 +162,22 @@
                     <div class="card-body text-center">
                         <div class=" d-flex flex-sm-column flex-md-row justify-content-between text-secondary">
                             <p class="">Player Expenses</p>
-                            <p class=" ">$<span>0000</span></p>
+                            <p class=" ">$<span id="player-expense">0000</span></p>
                         </div>
                         <div class=" d-flex justify-content-between my-3 text-secondary">
                             <p class="d-flex alight-items-center">Manager</p>
-                            <input class="w-50 bg-ultimate-black text-white" type="text">
+                            <input id="manager-expense-field" class="w-50 bg-ultimate-black text-white" type="text">
                         </div>
                         <div class=" d-flex flex-sm-column flex-md-row justify-content-between text-secondary">
                             <p class="">Coach</p>
-                            <input class="w-50 bg-ultimate-black text-white">
+                            <input id="coach-expense-field" class="w-50 bg-ultimate-black text-white">
                         </div>
-                        <button class="btn bg-primary text-center my-3 rounded-0 text-white w-100">Calculate
+                        <button id="calculate-total-btn"
+                            class="btn bg-primary text-center my-3 rounded-0 text-white w-100">Calculate
                             Total</button>
                         <div class=" d-flex flex-sm-column flex-md-row justify-content-between text-secondary">
                             <p class="">Total</p>
-                            <p class="text-orange fw-semibold">$<span>0000</span></p>
+                            <p class="text-orange fw-semibold">$<span id="total-expense">0000</span></p>
                         </div>
                     </div>
                 </div>
