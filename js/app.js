@@ -7,13 +7,21 @@ function getInputFieldValueById(InputFieldId) {
     const inputFieldValue = parseFloat(inputFieldString);
     return inputFieldValue;
 }
+
+// function to get element text by id
+function getElementTextbyId(elementId) {
+    const elementTextField = document.getElementById(elementId);
+    const elementTextString = elementTextField.innerText;
+    const elementText = parseFloat(elementTextString);
+    return elementText;
+}
 // function to set element 
 function setElementById(elementId, value) {
     const elementField = document.getElementById(elementId);
     elementField.innerText = value;
 }
 
-// function to create a new list for the target event player and kept the name inside a span to get white color
+// function to create a new list for the target event player, span added for white text color
 function createNewLi(targetEventPlayerName) {
 
     const selectedList = document.getElementById('selected-list');
@@ -26,11 +34,10 @@ function createNewLi(targetEventPlayerName) {
 }
 
 //common variable 
-let playerSelectedCount;
-let totalPlayerExpense;
-let selectedListLenght;
+let totalPlayerExpense = 0;
+let selectedListLenght = 0;
 
-// evenet lister and actions for select button
+// Adding event listner to "SELECT" buttons
 const SelectedButtons = document.getElementsByClassName('select-btn');
 for (const selectedButton of SelectedButtons) {
     selectedButton.addEventListener('click', function (event) {
@@ -51,7 +58,7 @@ for (const selectedButton of SelectedButtons) {
 
 }
 
-// event listener for calculate button
+// Adding Event listener to "Calculate" button
 document.getElementById('calculate-btn').addEventListener('click', function () {
 
     const perPlayerExpense = getInputFieldValueById("per-player-field");
@@ -60,12 +67,13 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     if (isNaN(perPlayerExpense) || perPlayerExpense < 0) {
         alert('Please enter only valid number');
     } else {
+        totalPlayerExpense = getElementTextbyId("player-expense");
         totalPlayerExpense = perPlayerExpense * selectedListLenght;
         setElementById("player-expense", totalPlayerExpense);
     }
 })
 
-// event listener for calculate total button
+// Adding event listener to "Calculate Total" button
 document.getElementById('calculate-total-btn').addEventListener('click', function () {
 
     const managerExpense = getInputFieldValueById('manager-expense-field');
