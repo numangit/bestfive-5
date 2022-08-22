@@ -13,18 +13,22 @@ function setElementById(elementId, value) {
     elementField.innerText = value;
 }
 
-// function to create a new list for the target event player
+// function to create a new list for the target event player and kept the name inside a span to get white color
 function createNewLi(targetEventPlayerName) {
+
     const selectedList = document.getElementById('selected-list');
-    const newLi = document.createElement('li')
-    newLi.innerText = targetEventPlayerName;
+    const newLi = document.createElement('li');
+    const newSpan = document.createElement('span');
+    newSpan.classList.add("text-white")
+    newSpan.innerText = targetEventPlayerName;
+    newLi.appendChild(newSpan);
     selectedList.appendChild(newLi);
 }
 
 //common variable 
-let counter = 0;
 let playerSelectedCount;
 let totalPlayerExpense;
+let selectedListLenght;
 
 // evenet lister and actions for select button
 const SelectedButtons = document.getElementsByClassName('select-btn');
@@ -34,13 +38,14 @@ for (const selectedButton of SelectedButtons) {
         const targetButton = e.target;
         const targetEventPlayerName = targetButton.parentNode.querySelector('h5').innerText;
 
-        if (counter >= 5) {
+        if (selectedListLenght >= 5) {
             alert("Limit Reached: can't select more players")
         } else {
             createNewLi(targetEventPlayerName);
             targetButton.disabled = true;
-            counter += 1;
-            setElementById("select-counter", counter);
+            targetButton.classList.add("bg-secondary");
+            selectedListLenght = document.getElementById("selected-list").children.length;
+            setElementById("select-counter", selectedListLenght);
         }
     })
 
@@ -55,7 +60,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     if (isNaN(perPlayerExpense) || perPlayerExpense < 0) {
         alert('Please enter only valid number');
     } else {
-        totalPlayerExpense = perPlayerExpense * counter;
+        totalPlayerExpense = perPlayerExpense * selectedListLenght;
         setElementById("player-expense", totalPlayerExpense);
     }
 })
