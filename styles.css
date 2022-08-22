@@ -4,8 +4,6 @@
     background-image: url(./images/psg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-
-    background-color: rgb(0, 0, 0);
 }
 
 .bg-ultimate-black {
@@ -18,5 +16,5 @@ body {
 }
 
 .text-orange {
-    color: orange;
+    color: rgb(226, 102, 0);
 }
