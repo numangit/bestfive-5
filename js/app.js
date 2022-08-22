@@ -33,9 +33,9 @@ let selectedListLenght;
 // evenet lister and actions for select button
 const SelectedButtons = document.getElementsByClassName('select-btn');
 for (const selectedButton of SelectedButtons) {
-    selectedButton.addEventListener('click', function (e) {
+    selectedButton.addEventListener('click', function (event) {
 
-        const targetButton = e.target;
+        const targetButton = event.target;
         const targetEventPlayerName = targetButton.parentNode.querySelector('h5').innerText;
 
         if (selectedListLenght >= 5) {
@@ -67,6 +67,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 // event listener for calculate total button
 document.getElementById('calculate-total-btn').addEventListener('click', function () {
+
     const managerExpense = getInputFieldValueById('manager-expense-field');
     const coachExpense = getInputFieldValueById('coach-expense-field');
 
