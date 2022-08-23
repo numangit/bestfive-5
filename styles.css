@@ -18,3 +18,11 @@ body {
 .text-orange {
     color: rgb(226, 102, 0);
 }
+
+.img-height {
+    height: 481px;
+}
+
+.font-large {
+    font-size: 10rem;
+}
